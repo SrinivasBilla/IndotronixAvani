@@ -1,0 +1,34 @@
+
+.mr-2, .mx-2 {
+  margin-right: 0.5rem !important;
+}
+.mb-4, .my-4 {
+  margin-bottom: 1.5rem !important;
+}
+.mt-4, .my-4 {
+  margin-top: 1.5rem !important;
+}
+.mb-8, .my-8 {
+  margin-bottom: 3rem !important;
+}
+.pb-4, .py-4 {
+  padding-bottom: 3rem !important;
+}
+.pt-4, .py-4 {
+  padding-top: 3rem !important;
+}
+.pt-5, .py-4 {
+  padding-top: 2rem !important;
+}
+.pl-4, .py-4 {
+  padding-left: 3rem;
+} 
+.pr-4, .py-4 {
+  padding-right: 3rem;
+} 
+.white-text {
+  color: white;
+}
+.pb30 {
+  padding-bottom: 30px;
+}
