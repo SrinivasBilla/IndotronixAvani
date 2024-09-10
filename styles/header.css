@@ -345,7 +345,6 @@ header {
 
   .nav-link:hover > a {
     transform: scale(1);
-    background-color: var(--clr-nav-hover);
   }
 
   .dropdown,

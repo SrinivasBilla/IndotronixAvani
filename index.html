@@ -298,8 +298,9 @@
   </div>
  <!---------------------Team Carousel -------------------->
  <section>
-  <div class="portfolio-title text-center font-weight-bold py-4">
-    <h2>Leadership</h2>
+  <div class="portfolio-title text-center py-4">
+    <h2 class="font-weight-bold ">Leadership</h2>
+    <p>We pave the path for future leaders</p>
   </div>
   <div class="container team-wrapper text-center">
     <span id="left" class="material-symbols-rounded">
@@ -404,11 +405,137 @@
 </section>
 
 <style>
+ .carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.carousel-track img {
+    width: 150px; /* Adjust as per logo size */
+    margin-right: 10px;
+}
+
+.awards-arrow {
+    height: 50px;
+    width: 50px;
+    background: rgb(206, 206, 206);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4c4c4c;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
 </style>
 <section class="awards">
- 
-
+  <div class="portfolio-title text-center py-4">
+    <h2 class="font-weight-bold ">Leadership</h2>
+    <p class="py-12">Whether the accolade went to Indotronix International Corporation or Avani Technology Solutions, we are proud to carry the Indotronix name & further the award-winning practices for which our companies have been recognized.</p>
+  </div>
+  <div class="container">
+  <div class="carousel-container">
+    <button class="awards-arrow left-arrow"><span class="material-symbols-rounded">
+      arrow_back_ios
+      </span></button>
+    <div class="carousel">
+        <div class="carousel-track">
+            <!-- Duplicate logos to create the infinite effect -->
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <!-- Repeat the logos to simulate the infinite effect -->
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+        </div>
+    </div>
+    <button class="awards-arrow right-arrow"><span class="material-symbols-rounded">
+      arrow_forward_ios
+      </span></button>
+    </div>
+</div>
 </section>
+ <!-- jQuery CDN -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    const $carouselTrack = $('.carousel-track');
+    const $images = $('.carousel-track img');
+    const imageWidth = $images.outerWidth(true); // Including margin
+    let index = 0;
+
+    function moveNext() {
+        index++;
+        $carouselTrack.css('transition', 'transform 0.5s ease');
+        $carouselTrack.css('transform', `translateX(${-index * imageWidth}px)`);
+
+        if (index >= $images.length / 2) {
+            setTimeout(() => {
+                $carouselTrack.css('transition', 'none');
+                $carouselTrack.css('transform', 'translateX(0)');
+                index = 0;
+            }, 500);
+        }
+    }
+
+    function movePrev() {
+        if (index === 0) {
+            index = $images.length / 2;
+            $carouselTrack.css('transition', 'none');
+            $carouselTrack.css('transform', `translateX(${-index * imageWidth}px)`);
+        }
+
+        setTimeout(() => {
+            index--;
+            $carouselTrack.css('transition', 'transform 0.5s ease');
+            $carouselTrack.css('transform', `translateX(${-index * imageWidth}px)`);
+        }, 50);
+    }
+
+    // Next and Previous Button Event Listeners
+    $('.right-arrow').on('click', moveNext);
+    $('.left-arrow').on('click', movePrev);
+
+    // Auto Scroll Functionality
+    let autoScroll = setInterval(moveNext, 2000); // Adjust the interval as needed
+
+    // Pause on Hover
+    $('.carousel-container').hover(
+        () => clearInterval(autoScroll),  // Pause on mouse enter
+        () => autoScroll = setInterval(moveNext, 2000)  // Resume on mouse leave
+    );
+});
+
+</script>
 
   <!---------------------Team Carousel -------------------->
   <!---------------------Footer -------------------->

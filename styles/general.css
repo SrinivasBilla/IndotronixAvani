@@ -26,6 +26,10 @@
 .pr-4, .py-4 {
   padding-right: 3rem;
 } 
+.py-12 {
+  padding-left: 12rem;
+  padding-right: 12rem;
+}
 .white-text {
   color: white;
 }
