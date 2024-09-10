@@ -224,7 +224,7 @@ header {
   width: 1.6rem;
   height: 3px;
   border-radius: 3px;
-  background-color: var(--clr-light);
+  background-color: #23356d;
   position: relative;
   z-index: 1001;
   transition: .5s;
@@ -236,7 +236,7 @@ header {
   position: absolute;
   width: inherit;
   height: inherit;
-  background-color: var(--clr-light);
+  background-color: #23356d;
   border-radius: 3px;
   transition: .5s;
 }
@@ -287,6 +287,9 @@ header {
 }
 
 @media (max-width: 920px) {
+  header {
+    position: fixed;
+  }
   .hamburger-menu-container {
     display: flex;
   }
@@ -298,10 +301,10 @@ header {
   .nav-btn {
     position: fixed;
     height: calc(100vh - 3rem);
-    top: 3rem;
+    top: 5rem;
     left: 0;
     width: 100%;
-    background-color: var(--clr-btn);
+    background-color: #ffffff;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
