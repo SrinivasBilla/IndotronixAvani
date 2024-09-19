@@ -9,14 +9,14 @@
   overflow-x: auto;
 }
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Titillium Web',Arial,Helvetica,sans-serif;
   overflow: hidden;
   min-height: 100vh;
   flex-wrap: wrap;
   text-align: left;
 }
 .container {
-  max-width: 70rem;
+  max-width: 68rem;
   padding: 6px 2rem;
   margin: 0 auto;
   position: relative;
@@ -91,7 +91,10 @@ section {
 .cta-flex {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 25px;
+}
+.flex-shrink-0 {
+    display: flex;
 }
 .cta-button {
   display: flex;
@@ -100,6 +103,7 @@ section {
   box-shadow: 0 3px 20px #002C7180;
   color: #002c71;
   justify-content: space-between;
+  height: 85px;
 }
 .orange-bg {
   background: #ff9e1b;
@@ -108,10 +112,11 @@ section {
 .flex-shrink-1 {
   flex: 1;
   text-shadow: none;
-  padding: 10px;
+  line-height: 1.2;
 }
 .flex-shrink-2 {
   display: flex;
+  padding: 0px 10px 0px 0px;
 }
 .font-weight-bold {
   font-weight: 700 !important;

@@ -36,3 +36,11 @@
 .pb30 {
   padding-bottom: 30px;
 }
+
+
+@media (max-width: 767px) {
+  .py-12 {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}

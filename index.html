@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/custom.css">
     <link rel="stylesheet" href="styles/general.css">
+    <link rel="preload" data-rocket-preload as="style" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A300%2C400%2C700%7CTitillium%20Web%3A400%2C700&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A300%2C400%2C700%7CTitillium%20Web%3A400%2C700&#038;display=swap" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
   </head>
@@ -91,7 +92,7 @@
             </ul>
           </div>
           <div class="log-sign" style="--i: 1.8s">
-            <a href="#" class="btn transparent">Log in</a>
+            <a href="#" class="btn transparent">Contact Us</a>
           </div>
         </div>
   
@@ -406,8 +407,8 @@
 
 <style>
  .carousel-container {
-    position: relative;
-    width: 80%;
+    /* position: relative; */
+    width: 90%;
     margin: auto;
     overflow: hidden;
 }
@@ -424,7 +425,7 @@
 }
 
 .carousel-track img {
-    width: 150px; /* Adjust as per logo size */
+    width: 180px; /* Adjust as per logo size */
     margin-right: 10px;
 }
 
@@ -445,16 +446,30 @@
 }
 
 .left-arrow {
-    left: 0;
+    left: 30px;
 }
 
 .right-arrow {
-    right: 0;
+    right: 30px;
+}
+
+@media (max-width: 767px) {
+  .carousel-track img {
+    width: 300px;
+    margin-right: 0px;
+  }
+  .left-arrow {
+      left: 0px;
+  }
+
+  .right-arrow {
+      right: 0px;
+  }
 }
 </style>
 <section class="awards">
   <div class="portfolio-title text-center py-4">
-    <h2 class="font-weight-bold ">Leadership</h2>
+    <h2 class="font-weight-bold ">Awards & Recognitions</h2>
     <p class="py-12">Whether the accolade went to Indotronix International Corporation or Avani Technology Solutions, we are proud to carry the Indotronix name & further the award-winning practices for which our companies have been recognized.</p>
   </div>
   <div class="container">
