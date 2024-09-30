@@ -1,0 +1,309 @@
+
+  <div class="container team-wrapper text-center">
+    <span id="left" class="material-symbols-rounded">
+      arrow_back_ios
+      </span>
+    <ul class="team-carousel">
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/sameer-img.jpg" alt="sameer-img" draggable="false">
+          <h4>Sameer Penakalapati</h4>
+          <p>CEO & Founder</p>
+        </div>
+      </li>
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/venkat-m.png" alt="sameer-img" draggable="false">
+          <h4>Venkat Mantha</h4>
+          <p>President</p>
+        </div>
+      </li>
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/mitch.webp" alt="sameer-img" draggable="false">
+          <h4>Mitch Meller</h4>
+          <p>Chief Operating Officer</p>
+        </div>
+      </li>
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/john-m-quinn.png" alt="sameer-img" draggable="false">
+          <h4>John M. Quinn</h4>
+          <p>Chief Financial Officer</p>
+        </div>
+      </li>
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/rami.png" alt="sameer-img" draggable="false">
+          <h4>Rami J. Fakhoury, ESQ.</h4>
+          <p>General Counsel</p>
+        </div>
+      </li>
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/Mark-Edmonds.png" alt="sameer-img" draggable="false">
+          <h4>Mark Edmonds</h4>
+          <p>VP, Corporate Communications</p>
+        </div>
+      </li>
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/melissa.png" alt="sameer-img" draggable="false">
+          <h4>Melissa Lord</h4>
+          <p>Managing Director,<br>
+            Accelerate Media</p>
+        </div>
+      </li>
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/scott.webp" alt="sameer-img" draggable="false">
+          <h4>Scot Goldfarb</h4>
+          <p>Vice President,<br>
+            Avani Healthcare Staffing</p>
+        </div>
+      </li>
+      <li class="team-card">
+        <div class="img">
+          <img src="assets/images/team/michael-allen.jpg" alt="sameer-img" draggable="false">
+          <h4>Michael Allen</h4>
+          <p>Chief Operating Officer,<br>
+            Indotronix Avani UK</p>
+        </div>
+      </li>
+      
+    </ul>
+    <span id="right" class="material-symbols-rounded">
+      arrow_forward_ios
+      </span>
+  </div>
+ </section>
+ .team-wrapper span{
+  height: 50px;
+  width: 50px;
+  background: rgb(206, 206, 206);
+  text-align: center;
+  border-radius: 50%;
+  line-height: 50PX;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.team-wrapper span:first-child {
+  left: -22px;
+}
+.team-wrapper span:last-child {
+  right: -22px;
+}
+.team-card .img img{
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.team-card .img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team-carousel .team-card {
+  scroll-snap-align: start;
+  height: 342px;
+  list-style: none;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.team-carousel.no-transition {
+  scroll-behavior: auto;
+}
+.team-carousel.dragging .team-card {
+  cursor: grab;
+  user-select: none;
+}
+.team-carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.team-carousel::-webkit-scrollbar {
+  display: none;
+}
+.team-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100%/4) - 12px);
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0s;
+}
+.team-carousel h4{
+  font-size: 20px;
+}
+ 
+ </style>
+ 
+ <script>
+ const teamWrapper = document.querySelector('.team-wrapper');
+const team_carousel = document.querySelector('.team-carousel');
+const teamArrowbtns = document.querySelectorAll('.team-wrapper span');
+const firstCardWidth = team_carousel.querySelector(".team-card").offsetWidth;
+const carouselChildrens = [...team_carousel.children]
+
+let isDragging = false, startX, startScollLeft, timeoutId;
+
+let cardPerView = Math.random(team_carousel.offsetWidth / firstCardWidth);
+//Insert copies of the latest few cards to beginning of carousel for infit=nity scrolling 
+carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+    team_carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+});
+//Insert copies of the first few cards to end of carousel for infit=nity scrolling 
+carouselChildrens.slice(0, cardPerView).forEach(card => {
+    team_carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+});
+teamArrowbtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        team_carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth
+    })
+})
+
+const dragStart = (e) => {
+    isDragging = true;
+    team_carousel.classList.add("dragging");
+
+    startX = e.pageX;
+    startScollLeft = team_carousel.scrollLeft;
+}
+
+const dragging = (e) => {
+    if(!isDragging) return;
+    team_carousel.scrollLeft = startScollLeft - (e.pageX - startX);
+}
+const dragStop = () => {
+    isDragging = false;
+    team_carousel.classList.remove("dragging")
+}
+
+const autoPlay = () => {
+    if(window.innerWidth < 800) return; //Return if window is smallwer then 800
+    // Autoplay every 2500ms
+    timeoutId = setTimeout(() => team_carousel.scrollLeft += firstCardWidth, 2500);
+}
+autoPlay();
+
+const InfiniteScroll = () => {
+    if(team_carousel.scrollLeft === 0) {
+        team_carousel.classList.add("no-transition");
+        team_carousel.scrollLeft = team_carousel.scrollWidth - (2 *team_carousel.offsetWidth);
+        team_carousel.classList.remove("no-transition");
+    }else if(Math.ceil(team_carousel.scrollLeft) === team_carousel.scrollWidth - team_carousel.offsetWidth) {
+        team_carousel.classList.add("no-transition")
+        team_carousel.scrollLeft = team_carousel.offsetWidth;
+        team_carousel.classList.remove("no-transition");
+    }
+    clearTimeout(timeoutId);
+    if(!teamWrapper.matches(":hover")) autoPlay();
+}
+
+team_carousel.addEventListener("mousedown", dragStart);
+team_carousel.addEventListener("mousemove", dragging);
+document.addEventListener("mouseup", dragStop);
+team_carousel.addEventListener("scroll", InfiniteScroll);
+teamWrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+teamWrapper.addEventListener("mouseleave", autoPlay);
+
+
+
+
+ </script>
+ 
+ 
+ <section>
+  <div class="container">
+  <div class="carousel-container">
+    <button class="awards-arrow left-arrow"><span class="material-symbols-rounded">
+      arrow_back_ios
+      </span></button>
+    <div class="carousel">
+        <div class="carousel-track">
+            <!-- Duplicate logos to create the infinite effect -->
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/Pinnacle-2023-2.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <!-- Repeat the logos to simulate the infinite effect -->
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+            <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
+        </div>
+    </div>
+    <button class="awards-arrow right-arrow"><span class="material-symbols-rounded">
+      arrow_forward_ios
+      </span></button>
+    </div>
+</div>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    const $carouselTrack = $('.carousel-track');
+    const $images = $('.carousel-track img');
+    const imageWidth = $images.outerWidth(true); // Including margin
+    let index = 0;
+
+    function moveNext() {
+        index++;
+        $carouselTrack.css('transition', 'transform 0.5s ease');
+        $carouselTrack.css('transform', `translateX(${-index * imageWidth}px)`);
+
+        if (index >= $images.length / 2) {
+            setTimeout(() => {
+                $carouselTrack.css('transition', 'none');
+                $carouselTrack.css('transform', 'translateX(0)');
+                index = 0;
+            }, 500);
+        }
+    }
+
+    function movePrev() {
+        if (index === 0) {
+            index = $images.length / 2;
+            $carouselTrack.css('transition', 'none');
+            $carouselTrack.css('transform', `translateX(${-index * imageWidth}px)`);
+        }
+
+        setTimeout(() => {
+            index--;
+            $carouselTrack.css('transition', 'transform 0.5s ease');
+            $carouselTrack.css('transform', `translateX(${-index * imageWidth}px)`);
+        }, 50);
+    }
+
+    // Next and Previous Button Event Listeners
+    $('.right-arrow').on('click', moveNext);
+    $('.left-arrow').on('click', movePrev);
+
+    // Auto Scroll Functionality
+    let autoScroll = setInterval(moveNext, 2000); // Adjust the interval as needed
+
+    // Pause on Hover
+    $('.carousel-container').hover(
+        () => clearInterval(autoScroll),  // Pause on mouse enter
+        () => autoScroll = setInterval(moveNext, 2000)  // Resume on mouse leave
+    );
+});
+
+</script>
