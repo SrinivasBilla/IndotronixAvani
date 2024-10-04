@@ -17,6 +17,7 @@
     <link rel="preload" data-rocket-preload as="style" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A300%2C400%2C700%7CTitillium%20Web%3A400%2C700&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A300%2C400%2C700%7CTitillium%20Web%3A400%2C700&#038;display=swap" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <!--Navigation ---->
@@ -139,14 +140,43 @@
     </div>
   </div>
  </div>
+<style>
+  .fadein {
+  opacity: 0;
+  transition: all 1.5s;
+  transform: translate(0, 100px);
+}
+.fadein.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+</style>
+<script>
+  // fade in grid items  ==================================
 
+  $(document).on("scroll", function () {
+    var pageTop = $(document).scrollTop()
+    var pageBottom = pageTop + $(window).height()
+    var tags = $(".fadein")
+
+    for (var i = 0; i < tags.length; i++) {
+      var tag = tags[i]
+
+      if ($(tag).offset().top < pageBottom) {
+        $(tag).addClass("visible")
+      } else {
+        $(tag).removeClass("visible")
+      }
+    }
+  })
+</script>
 <section>
   <div class="container">
  <div class="portfolio">
-  <div class="portfolio-title text-center font-weight-bold">
+  <div class="portfolio-title text-center font-weight-bold mb-4">
     <h2>Portfolio of Companies</h2>
   </div>
-  <div class="about-iic">
+  <div class="about-iic  fadein">
     <div class="iic-logo">
     <img src="assets/images/indotronix-rgb-IAGco.svg" alt="Indotronix">
   </div>
@@ -159,8 +189,8 @@
             <img src="assets/images/in.svg">
           </div>
           <div class="flag-text">
-            <h5>Visit Website ></h5>
-            <h5>Visit Website ></h5>
+            <h5><a href="https://www.iic.com/" target="_blank"> Visit Website ></a></h5>
+            <h5><a href="https://www.iic.com/uk" target="_blank">Visit Website ></a></h5>
           </div>
       </div>
       <div class="iic-websites">
@@ -169,8 +199,8 @@
             <img src="assets/images/in.svg">
           </div>
           <div class="flag-text">
-            <h5>Visit Website ></h5>
-            <h5>Visit Website ></h5>
+            <h5><a href="https://www.iic.com/in" target="_blank">Visit Website ></a></h5>
+            <h5><a href="#" target="_blank">Visit Website ></a></h5>
           </div>
       </div>
       </div>
@@ -190,7 +220,7 @@
 </div>
   </div>
   <div class="container">
-    <div class="companies-card">
+    <div class="companies-card  fadein">
       <div class="card py-4">
         <img src="assets/images/ahs-logo.svg" />
         <p>Avani Healthcare Staffing</p>
@@ -225,63 +255,56 @@
   </div>
 </div>
 </section>
-<!---------------------Whom We Serve -------------------->
-<style>
-  .fadeInUp{animation:fadeInUp 1s ease backwards;}
-@keyframes fadeInUp{
-  0%{transform:translate(0px, 100px); opacity: 0;}
-  100%{transform:translate(0px, 0); opacity: 1;}
-}
-</style>
+<!---------------------Whom We Serve -------------------->\
   <section class="whom-we-serve">
     <div class="container">
       <div class="section-title text-center white-text pb-4">
         <h2>Whom We Serve</h2>
         <p>The group services to marquee clients in Government, Corporate and Technology Integrators</p>
       </div>
-      <div class="infobox fadeInUp" style="animation-delay:2s;">
-        <div class="infobox-card">
+      <div class="infobox" style="animation-delay:2s;">
+        <div class="infobox-card fadein">
           <div class="infobox-icon">
-            <img decoding="async" src="https://demo.assets.templately.com/multipurpose/elementor/21/2024/03/9647e1e3-services1.png" alt="">
+            <img decoding="async" src="/assets/images/icons/governament.png" alt="">
           </div>
           <div class="infobox-content">
-            <h2 class="title">Government</h2>
+            <h3 class="title">Government</h3>
             <p>Federal, State and Local government entities + Federal Prime Contractors</p> 
           </div>
         </div>
-        <div class="infobox-card">
+        <div class="infobox-card fadein">
           <div class="infobox-icon">
-            <img decoding="async" src="https://demo.assets.templately.com/multipurpose/elementor/21/2024/03/9647e1e3-services1.png" alt="">
+            <img decoding="async" src="/assets/images/icons/corporate.png" alt="">
           </div>
           <div class="infobox-content">
-            <h2 class="title">Corporate</h2>
+            <h3 class="title">Corporate</h3>
             <p>Across industry verticals - BFSI, Life Sciences, Telecom, F&B, Media & Entertainment, Utilities, Hospitality</p> 
           </div>
         </div>
-        <div class="infobox-card">
+        <div class="infobox-card fadein">
           <div class="infobox-icon">
-            <img decoding="async" src="https://demo.assets.templately.com/multipurpose/elementor/21/2024/03/9647e1e3-services1.png" alt="">
+            <img decoding="async" src="/assets/images/icons/technology.png" alt="">
           </div>
           <div class="infobox-content">
-            <h2 class="title">Technology Integrators</h2>
+            <h3 class="title">Technology Integrators</h3>
             <p>A history of serving large global Technology Integrators for over 25 years</p> 
           </div>
         </div>
-        <div class="infobox-card">
+        <div class="infobox-card fadein">
           <div class="infobox-icon">
-            <img decoding="async" src="https://demo.assets.templately.com/multipurpose/elementor/21/2024/03/9647e1e3-services1.png" alt="">
+            <img decoding="async" src="/assets/images/icons/healthcare.png" alt="">
           </div>
           <div class="infobox-content">
-            <h2 class="title">Healthcare</h2>
+            <h3 class="title">Healthcare</h3>
             <p>We never forget that you’re not just a healthcare professional—you’re also a person.</p> 
           </div>
         </div>
-        <div class="infobox-card">
+        <div class="infobox-card fadein">
           <div class="infobox-icon">
-            <img decoding="async" src="https://demo.assets.templately.com/multipurpose/elementor/21/2024/03/9647e1e3-services1.png" alt="">
+            <img decoding="async" src="/assets/images/icons/global.png" alt="">
           </div>
           <div class="infobox-content">
-            <h2 class="title">Global</h2>
+            <h3 class="title">Global</h3>
             <p>Footprint across US, Canada, UK, Europe, India</p> 
           </div>
         </div>
@@ -296,86 +319,86 @@
   </div>
   <div class="container">
     <div class="ia-team-card">
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/sameer-img.jpg">
         </div>
         <div class="team-info">
-            <h3 class="title">Sameer Penakalapati</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/sameerpenakalapati/" target="_blank">Penakalapati</a> </h3>
             <span class="post">CEO & Founder</span>
         </div>
       </div>
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/venkat-m.png">
         </div>
         <div class="team-info">
-            <h3 class="title">Venkat Mantha</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/venkat-mantha-2287163/" target="_blank">Venkat Mantha</a></h3>
             <span class="post">President</span>
         </div>
       </div>
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/mitch.jpg">
         </div>
         <div class="team-info">
-            <h3 class="title">Mitch Meller</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/mitch-meller-09b09591/" target="_blank">Mitch Meller</a></h3>
             <span class="post">Chief Operating Officer</span>
         </div>
       </div>
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/john-m-quinn.jpg">
         </div>
         <div class="team-info">
-            <h3 class="title">John M. Quinn</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/john-m-quinn-2853586/" target="_blank">John M. Quinn</a></h3>
             <span class="post">Chief Financial Officer</span>
         </div>
       </div>
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/rami.jpg">
         </div>
         <div class="team-info">
-            <h3 class="title">Rami J. Fakhoury, ESQ.</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/rami-fakhoury-520b787/" target="_blank">Rami J. Fakhoury, ESQ.</a></h3>
             <span class="post">General Counsel</span>
         </div>
       </div>
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/mark-edmonds.jpg">
         </div>
         <div class="team-info">
-            <h3 class="title">Mark Edmonds</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/mark-edmonds-9657a02a/" target="_blank">Mark Edmonds</a></h3>
             <span class="post">VP, Corporate Communications</span>
         </div>
       </div>
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/melissa.jpg">
         </div>
         <div class="team-info">
-            <h3 class="title">Melissa Lord</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/melissa-a-lord/" target="_blank">Melissa Lord</a></h3>
             <span class="post">Managing Director,<br>
               Accelerate Media</span>
         </div>
       </div>
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/scott.jpg">
         </div>
         <div class="team-info">
-            <h3 class="title">Scot Goldfarb</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/scot-goldfarb-csc/" target="_blank">Scot Goldfarb</a></h3>
             <span class="post">Vice President,<br>
               Avani Healthcare Staffing</span>
         </div>
       </div>
-      <div class="our-team">
+      <div class="our-team fadein">
         <div class="team-image">
             <img src="assets/images/team/michael-allen.jpg">
         </div>
         <div class="team-info">
-            <h3 class="title">Michael Allen</h3>
+            <h3 class="title"><a href="https://www.linkedin.com/in/michaelallen1/" target="_blank">Michael Allen</a></h3>
             <span class="post">Chief Operating Officer,<br>
               Indotronix Avani UK</span>
         </div>
@@ -415,17 +438,17 @@
 
 
 <section class="social-responsibilities white-text">
-  <div class="container">
+  <div class="container fadein">
     <div class="section-title text-center">
       <h2>Transforming Lives Across Generations: Our Dedication to Corporate Social Responsibilities</h2>
       <p>At Indotronix, we are committed to building a better tomorrow through education. As advocates of equal opportunities, we strive to empower underprivileged children with access to primary school education, STEM learning, and personality development programs. By investing in the next generation of talent, we are creating a brighter future for our community and beyond.</p>
     </div>
-    <div class="csr">
+    <div class="csr fadein">
       <div class="video">
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/S-7B76vxL7g?si=WdS6Ld7FOltXk4VV" frameborder="0" allowfullscreen></iframe>
          
       </div>
-      <div class="text">
+      <div class="text fadein">
         <ul class="csr-list">
           <li><strong>Nigama Foundation: </strong>A school funded and operated under the leadership of CEO Sameer Penakalapati for children who are orphans or whose parents cannot afford to care for them.</li>
           <li><strong>Edison Career & Technology High School:</strong> Indotronix has been actively involved with a program dedicated to providing access to STEM education for inner-city youth who lack the means but have the aptitude.</li>
@@ -509,64 +532,64 @@
 
   <div class="container">
     <div class="awards-body">
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/sia-2024.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/SIA-dei.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b">
+      <div class="awards-logos border-b fadein">
         <img src="./assets/images/awards/SIA-2023.jpg" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/NMSDC.jpg" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/New-Project-1-1.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b">
+      <div class="awards-logos border-b fadein">
         <img src="./assets/images/awards/2022_Greater_Rochester.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/Stewardship-Star-Award.jpg" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/SIA-2020.jpg" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b">
+      <div class="awards-logos border-b fadein">
         <img src="./assets/images/awards/Top-100-2021.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/Email-Badge.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/Supplier-2020.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b">
+      <div class="awards-logos border-b fadein">
         <img src="./assets/images/awards/Top-100-2020.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/uspaacc.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/Synergy-Awards.jpg" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b">
+      <div class="awards-logos border-b fadein">
         <img src="./assets/images/awards/Top-100-2019.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/top-100-2018.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b-r">
+      <div class="awards-logos border-b-r fadein">
         <img src="./assets/images/awards/TechServe-Alliance.jpg" alt="Logo 1">
       </div>
-      <div class="awards-logos border-b">
+      <div class="awards-logos border-b fadein">
         <img src="./assets/images/awards/top-100-2018.png" alt="Logo 1">
       </div>
-      <div class="awards-logos border-r">
+      <div class="awards-logos border-r fadein">
         <img src="./assets/images/awards/glassdoor.png" alt="Logo 1">
       </div>
-      <div class="awards-logos">
+      <div class="awards-logos fadein">
         <img src="./assets/images/awards/INC500-logo.png" alt="Logo 1">
       </div>
       <div class="awards-logos">
@@ -623,10 +646,10 @@
             Fax : (845) 473-1197</p>
             <div class="footer-social-icons">
               
-              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-              <a href="#"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#"><i class="fa-brands fa-facebook"></i></a>
-              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://www.facebook.com/IndotronixInternational/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://www.linkedin.com/company/indotronix-international-corporation/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://x.com/indotronix" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+              <a href="https://www.youtube.com/channel/UCi1WJ9ADaQ-mOjNMtSjEoQw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
       </div>

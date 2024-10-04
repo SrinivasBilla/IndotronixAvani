@@ -14,6 +14,7 @@ body {
   min-height: 100vh;
   flex-wrap: wrap;
   text-align: left;
+  line-height: 1.5;
 }
 .container {
   max-width: 68rem;
@@ -254,7 +255,10 @@ section {
   animation-duration: 2s;
     animation-fill-mode: both;
 }
-
+.card:hover {
+  background-color: #009cde40;
+  transition: 1s;
+}
 .card img {
   width: 45%;
   aspect-ratio: 4 / 2;
@@ -262,7 +266,7 @@ section {
 
 /*<!---------------------Whom We Serve -------------------->*/
 .whom-we-serve {
-  background: url(/assets/images/csr-image.jpg) no-repeat top center / cover;
+  background: url(/assets/images/Govt.png) no-repeat top center / cover;
   background-attachment: fixed;
 }
 .infobox {
@@ -385,9 +389,6 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-top: 30px
-}
-.social-responsibilities .section-title h2{
-  font-size: 2rem;
 }
 .social-responsibilities .video {
   border-radius: 6px;
