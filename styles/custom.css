@@ -266,7 +266,7 @@ section {
 
 /*<!---------------------Whom We Serve -------------------->*/
 .whom-we-serve {
-  background: url(/assets/images/Govt.png) no-repeat top center / cover;
+  background: url(https://srinivasbilla.github.io/IndotronixAvani/assets/images/Govt.png) no-repeat top center / cover;
   background-attachment: fixed;
 }
 .infobox {
@@ -381,7 +381,7 @@ section {
 
 /*------------------------------CSR-Section -------------------------*/
 .social-responsibilities {
-  background: url(/assets/images/csr-image.jpg) no-repeat top center / cover;
+  background: url(https://srinivasbilla.github.io/IndotronixAvani/assets/images/csr-image.jpg) no-repeat top center / cover;
   background-attachment: fixed;
 }
 .csr{
