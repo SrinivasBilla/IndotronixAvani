@@ -496,6 +496,13 @@ ul.csr-list li {
   .team-wrapper span:last-child {
     right: 0px;
   }
+  .infobox { 
+    grid-template-columns: 1fr;
+  }
+  .container {
+    padding: 0px 15px;
+  }
+
   
 
   /*---------------------Team Carousel --------------------*/
